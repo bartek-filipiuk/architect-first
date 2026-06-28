@@ -13,21 +13,23 @@ test('all required files exist', () => {
     '.claude-plugin/plugin.json', 'package.json', 'AGENTS.md', 'README.md',
     'hooks/architect-hooks.json', 'hooks/architect-activate.js', 'hooks/architect-mode-tracker.js',
     'philosophy/principles.md',
-    'commands/architect.toml', 'commands/architect-plan.toml',
-    'commands/architect-review.toml', 'commands/architect-help.toml',
+    'commands/architect.md', 'commands/architect-plan.md',
+    'commands/architect-review.md', 'commands/architect-help.md',
   ];
   for (const f of required) assert.ok(fs.existsSync(r(f)), `missing ${f}`);
   assert.strictEqual(fs.readdirSync(r('philosophy/architects')).filter(f => f.endsWith('.md')).length, 12);
 });
 
-test('all JSON and TOML parse', () => {
+test('all JSON parses and commands are valid .md (Claude Code loads .md, not .toml)', () => {
   for (const f of ['.claude-plugin/plugin.json', 'package.json', 'hooks/architect-hooks.json']) {
     JSON.parse(fs.readFileSync(r(f), 'utf8'));
   }
   for (const f of fs.readdirSync(r('commands'))) {
+    assert.ok(f.endsWith('.md'), `${f} must be a .md command — Claude Code does not load .toml commands`);
     const s = fs.readFileSync(r(path.join('commands', f)), 'utf8');
-    assert.match(s, /^description\s*=/m, `${f} missing description`);
-    assert.match(s, /^prompt\s*=/m, `${f} missing prompt`);
+    assert.match(s, /^description:/m, `${f} missing frontmatter description:`);
+    const body = s.replace(/^---[\s\S]*?\n---\n/, '').trim();
+    assert.ok(body.length > 0, `${f} has no prompt body`);
   }
 });
 
