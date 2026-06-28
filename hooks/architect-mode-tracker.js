@@ -29,6 +29,7 @@ function main(input) {
 
 if (require.main === module) {
   let data = '';
+  process.stdin.setEncoding('utf8');
   process.stdin.on('data', (c) => { data += c; });
   process.stdin.on('end', () => { main(data); process.exit(0); });
   process.stdin.on('error', () => process.exit(0));

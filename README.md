@@ -7,8 +7,16 @@ module depth, context boundaries.
 
 ## Install
 
-Add this plugin via your Claude Code plugin marketplace, then start a session —
-`ARCHITECT-FIRST MODE ACTIVE` confirms the Decision Ladder is loaded.
+Add this repo as a marketplace, then install the plugin (two separate prompts):
+
+```
+/plugin marketplace add bartekfilipiuk/architect
+```
+```
+/plugin install architect-first@architect-first
+```
+
+Start a session — `ARCHITECT-FIRST MODE ACTIVE` confirms the Decision Ladder is loaded.
 
 ## How it works
 

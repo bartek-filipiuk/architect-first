@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "architect-first",
+  "description": "Automated Principal Architect. Always-on architectural Decision Ladder plus on-demand planning and audit commands.",
+  "owner": {
+    "name": "Bartek Filipiuk"
+  },
+  "plugins": [
+    {
+      "name": "architect-first",
+      "description": "Automated Principal Architect. Always-on architectural Decision Ladder (YAGNI, reuse, native, abstraction cost, dependency direction, minimum viable architecture) plus on-demand planning and audit commands.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
