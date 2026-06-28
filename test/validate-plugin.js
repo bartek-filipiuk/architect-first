@@ -46,7 +46,8 @@ test('SECURITY: hooks run cleanly (exit 0) and emit no env secrets', () => {
   assert.ok(!act.includes('do-not-leak'), 'activate leaked an env var');
   assert.ok(act.includes('ARCHITECT-FIRST MODE ACTIVE'));
   // mode-tracker consumes stdin and must exit 0 even on junk
-  execFileSync('node', [r('hooks/architect-mode-tracker.js')], { env, input: 'not-json', encoding: 'utf8' });
+  const track = execFileSync('node', [r('hooks/architect-mode-tracker.js')], { env, input: 'not-json', encoding: 'utf8' });
+  assert.ok(!track.includes('do-not-leak'), 'mode-tracker leaked an env var');
 });
 
 test('SECURITY: hooks declare no external dependencies', () => {
