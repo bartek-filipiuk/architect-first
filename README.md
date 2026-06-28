@@ -7,10 +7,12 @@ module depth, context boundaries.
 
 ## Install
 
-Add this repo as a marketplace, then install the plugin (two separate prompts):
+Add this repo as a marketplace, then install the plugin (two separate prompts).
+Replace the source below with your own `<github-owner>/<repo>` once pushed, or use
+a local path to this clone:
 
 ```
-/plugin marketplace add bartekfilipiuk/architect
+/plugin marketplace add <github-owner>/<repo>
 ```
 ```
 /plugin install architect-first@architect-first
