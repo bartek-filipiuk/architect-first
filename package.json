@@ -1,0 +1,9 @@
+{
+  "name": "architect-first",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Architect-First plugin for Claude Code",
+  "scripts": {
+    "test": "node --test"
+  }
+}
