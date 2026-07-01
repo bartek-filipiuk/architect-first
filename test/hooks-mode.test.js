@@ -12,6 +12,7 @@ test('parseLevel extracts a valid level', () => {
   assert.strictEqual(parseLevel('please /architect ultra now'), 'ultra');
   assert.strictEqual(parseLevel('/architect-mode lite'), 'lite');
   assert.strictEqual(parseLevel('/architect OFF'), 'off');
+  assert.strictEqual(parseLevel('/architect-first:architect ultra'), 'ultra');
 });
 
 test('parseLevel ignores prompts without the command', () => {

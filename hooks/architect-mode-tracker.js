@@ -14,7 +14,9 @@ function statePath() {
 }
 
 function parseLevel(prompt) {
-  const m = /(?:^|\s)\/architect(?:-mode)?\s+(lite|full|ultra|off)\b/i.exec(prompt || '');
+  // Match both the short form (/architect lite) and the plugin-namespaced
+  // form Claude Code uses for plugin commands (/architect-first:architect lite).
+  const m = /(?:^|\s)\/(?:architect-first:)?architect(?:-mode)?\s+(lite|full|ultra|off)\b/i.exec(prompt || '');
   return m ? m[1].toLowerCase() : null;
 }
 

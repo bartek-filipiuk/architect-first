@@ -2,3 +2,5 @@ node_modules/
 .DS_Store
 scratchpad/
 .superpowers/
+# claude-mem plugin drops empty per-directory context files
+CLAUDE.md

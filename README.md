@@ -32,7 +32,7 @@ is loaded.
 
 ## How it works
 
-Three hooks, all zero-dependency Node (`node:*` only), all guaranteed to exit 0
+Two hooks, both zero-dependency Node (`node:*` only), both guaranteed to exit 0
 (a hook can never block your session):
 
 | Hook | Event | Job |
@@ -121,12 +121,12 @@ intent). These are stated in `AGENTS.md` and in every command prompt.
 
 ```
 .claude-plugin/        plugin.json + marketplace.json (self-installable)
-hooks/                 3 Node hooks + architect-hooks.json wiring
+hooks/                 2 Node hooks + architect-hooks.json wiring
 AGENTS.md              the always-on ruleset (full ladder + boundaries)
 philosophy/
   principles.md        rung -> architect index
   architects/          12 one-screen profiles, loaded on demand
-commands/              4 .toml commands (pure prompts, no code)
+commands/              4 .md commands (pure prompts, no code)
 test/                  node --test: hook unit tests + plugin validation gate
 ```
 
